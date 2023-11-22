@@ -6,6 +6,8 @@ public class Mouvements : MonoBehaviour
 {
     Vector2 _mouvementInput;
 
+    public InputManager inputManager;
+
     public float _speed;
 
     Rigidbody2D _rigidB;
@@ -18,6 +20,9 @@ public class Mouvements : MonoBehaviour
     void Update()
     {
         _mouvementInput = new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical")).normalized;
+
+        Vector3 dirRotate = inputManager.mousePosInGame - transform.position;
+        transform.rotation = Quaternion.LookRotation(Vector3.forward,dirRotate);
     }
 
     void FixedUpdate()
