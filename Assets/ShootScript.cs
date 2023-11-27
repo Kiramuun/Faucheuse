@@ -7,14 +7,14 @@ public class ShootScript : StateMachineBehaviour
 {
     public GameObject _bulletPrefab;
     public Transform _groupBullets;
-    public float _bulletSpeed;
+    public BulletSpeed _bulletSpeed;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         GameObject newBullet = Instantiate(_bulletPrefab, animator.gameObject.transform);
         newBullet.transform.localPosition = Vector2.zero;
-        newBullet.GetComponent<Rigidbody2D>().AddForce(GameObject.Find("Triangle").transform.up * _bulletSpeed);
+        newBullet.GetComponent<Rigidbody2D>().AddForce(GameObject.Find("Triangle").transform.up * _bulletSpeed.speed);
         newBullet.transform.parent = _groupBullets;
     }
 
@@ -25,10 +25,10 @@ public class ShootScript : StateMachineBehaviour
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        GameObject.Find("Reward Manager").GetComponent<RewardsEffects>().afterAttack.Invoke();
+    }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

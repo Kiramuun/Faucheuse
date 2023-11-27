@@ -28,8 +28,11 @@ public class YokaiDeathScript : StateMachineBehaviour
     {
         Debug.Log("I'm dieeeeee");
         Destroy(animator.gameObject);
-        _counterKill._ghostCount++;
-        
+        _counterKill.ghostCount++;
+
+        GameObject.Find("Reward Manager").GetComponent<RewardsEffects>().afterEnnemyDeath.Invoke();
+
+
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
