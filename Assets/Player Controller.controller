@@ -51,7 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 8076095746719216021, guid: 76ab3c6f87c00de468db2d6e8e140be1, type: 3}
   _groupBullets: {fileID: 0}
-  _bulletSpeed: 1200
+  _bulletSpeed: {fileID: 11400000, guid: 0cb8bff13f2cad34499a727256f9235c, type: 2}
 --- !u!1101 &-1481836851605239274
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

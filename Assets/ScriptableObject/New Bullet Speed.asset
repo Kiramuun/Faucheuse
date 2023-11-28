@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6adc52ed8cdac374dae80404b14ada97, type: 3}
   m_Name: New Bullet Speed
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 1389.1499
+  bonuSpeed: 1.05
